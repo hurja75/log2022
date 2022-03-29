@@ -97,9 +97,17 @@ $ambilsemuadatalog = mysqli_fetch_array(mysqli_query($conn, "select * from activ
                     <p>UPS</p>
                     <p>Dispenser GTO</p>
                 </td>
-                <td style="padding:3rem">
-                    <img style="max-width:50%;height:auto;" src="images/<?= $ambilsemuadatalog['images'] ?>" alt="">
-                    <?= $ambilsemuadatalog['tindakan'] ?>
+                <td style="padding:1rem">
+                    <table>
+                        <tr style="vertical-align: top;">
+                            <td width=50% align="center">
+                                <img style="max-width:80%;height:auto;" src="images/<?= $ambilsemuadatalog['images'] ?>" alt="">
+                            </td>
+                            <td>
+                                <?= $ambilsemuadatalog['tindakan'] ?>
+                            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
             <tr>
@@ -107,9 +115,6 @@ $ambilsemuadatalog = mysqli_fetch_array(mysqli_query($conn, "select * from activ
             </tr>
             <tr>
                 <td style="padding:1rem">
-                    <p>hfdhfdjfgjhfgjgfjgfjgfjhgfj</p>
-                    <p>hfdhfdjfgjhfgjgfjgfjgfjhgfj</p>
-                    <p>hfdhfdjfgjhfgjgfjgfjgfjhgfj</p>
                     <p>hfdhfdjfgjhfgjgfjgfjgfjhgfj</p>
                     <p>hfdhfdjfgjhfgjgfjgfjgfjhgfj</p>
                 </td>
@@ -161,7 +166,7 @@ $ambilsemuadatalog = mysqli_fetch_array(mysqli_query($conn, "select * from activ
             </tbody>
         </table>
         <script>
-        window.print();
+            window.print();
         </script>
 </body>
 
