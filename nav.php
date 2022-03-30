@@ -45,6 +45,14 @@
             </a>
         </li>
         <li class="nav-item has-treeview">
+            <a href="user.php" class="nav-link">
+                <i class="nav-icon fas fa-envelope"></i>
+                <p>
+                    User
+                </p>
+            </a>
+        </li>
+        <li class="nav-item has-treeview">
             <a href="logout.php" class="nav-link">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                 <p>

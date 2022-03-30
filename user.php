@@ -1,4 +1,4 @@
-<?php 
+<?php
 require 'function.php';
 require 'cek.php';
 
@@ -11,7 +11,7 @@ require 'cek.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Info Tamu | DataTables</title>
+    <title>Surat Masuk | DataTables</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -37,18 +37,12 @@ require 'cek.php';
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
-                <a class="navbar-brand" href="#">SELAMAT DATANG ADMIN PT. Marga Utama Nusantara, PT. Makassar Metro
-                    Network, PT. Jalan Tol Seksi Empat</a>
+                <a class="navbar-brand" href="#">Data Lokasi</a>
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
-
-                <!-- Messages Dropdown Menu -->
-
-                <!-- Notifications Dropdown Menu -->
-
                 <li class="nav-item">
                     <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
@@ -64,12 +58,10 @@ require 'cek.php';
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar sidebar-light-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index.php" class="brand-link">
                 <img src="mun.png" class="mx-auto d-block" style="width:70%">
-                <h5 class="text-center">MMN </h5>
-
                 <span class="brand-text font-weight-light"></span>
             </a>
 
@@ -81,79 +73,18 @@ require 'cek.php';
                         <img src="./assets/dist/img/user1.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Lt. 4 Menara Bosowa</a>
+                        <a href="#" class="d-block">Lokasi</a>
                     </div>
                 </div>
-
-                <!-- SidebarSearch Form -->
-
                 <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview">
-                            <a href="index.php" class="nav-link">
-                                <i class="nav-icon fas fa-dashboard"></i>
-                                <p>
-                                    Dashboard
-
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="karyawan.php" class="nav-link">
-                                <i class="nav-icon fas fa-user"></i>
-                                <p>
-                                    Karyawan
-
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="ruangan.php" class="nav-link">
-                                <i class="nav-icon fas fa-home"></i>
-                                <p>
-                                    Ruangan
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="smasuk.php" class="nav-link">
-                                <i class="nav-icon fas fa-envelope-open-text"></i>
-                                <p>
-                                    Surat Masuk
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="skeluar.php" class="nav-link">
-                                <i class="nav-icon fas fa-envelope"></i>
-                                <p>
-                                    Surat Keluar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="logout.php" class="nav-link">
-                                <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p>
-                                    Logout
-                                </p>
-                            </a>
-                        </li>
-                </nav>
+                <?php require("nav.php"); ?>
                 <!-- /.sidebar-menu -->
             </div>
             <!-- /.sidebar -->
         </aside>
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-
-
             <!-- Main content -->
             <section class="content">
                 <?php require("card.php"); ?>
@@ -163,8 +94,8 @@ require 'cek.php';
                             <div class="card">
                                 <div class="card-header">
                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#addtamu"><i class="fa fa-plus"></i>
-                                        Tambah Data Tamu
+                                        data-target="#lokasi"><i class="fa fa-plus"></i>
+                                        Tambah Lokasi
                                     </button>
                                 </div>
 
@@ -174,52 +105,46 @@ require 'cek.php';
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama Tamu</th>
-                                                <th>Bertemu Siapa</th>
-                                                <th>Status</th>
+                                                <th>ID Lokasi</th>
+                                                <th>Lokasi</th>
                                                 <th>Aksi</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php 
-                                            $no=1;
-                                            $ambilsemuadatatamu = mysqli_query($conn,"select * from tamu ORDER BY idtamu DESC");
-                                            while($data =mysqli_fetch_array($ambilsemuadatatamu)){
-                                                $idt = $data['idtamu'];
-                                                $nama = $data['nama'];
-                                                $bertemu = $data['bertemu'];
-                                                $status = $data['status'];
-                                                
-
-                                        ?>
-
+                                            <?php
+                                            $no = 1;
+                                            $ambilsemuadatalokasi = mysqli_query($conn, "select * from lokasi ORDER BY idlokasi DESC");
+                                            while ($data = mysqli_fetch_array($ambilsemuadatalokasi)) {
+                                                $idl = $data['idlokasi'];
+                                                $namalokasi = $data['namalokasi'];
+                                            ?>
                                             <tr>
-                                                <td><?=$no++;?></td>
-                                                <td><?=$nama;?></td>
-                                                <td><?=$bertemu;?></td>
-                                                <td><?=$status;?></td>
+                                                <td><?= $no++; ?></td>
+                                                <td><?= $idl; ?></td>
+                                                <td><?= $namalokasi; ?></td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#edit<?=$idt;?>"><i class="fa fa-edit"></i>
+                                                        data-target="#editlokasi<?= $idl; ?>"><i class="fa fa-edit"></i>
                                                         Edit
                                                     </button>
 
                                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                                        data-target="#delete<?=$idt;?>"><i class="fa fa-trash"></i>
+                                                        data-target="#deletelokasi<?= $idl; ?>"><i
+                                                            class="fa fa-trash"></i>
                                                         Delete
                                                     </button>
                                                 </td>
                                             </tr>
 
                                             <!-- The Modal -->
-                                            <div class="modal fade" id="edit<?=$idt;?>">
+                                            <div class="modal fade" id="editlokasi<?= $idl; ?>">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content bg-primary">
 
                                                         <!-- Modal Header -->
                                                         <div class="modal-header">
-                                                            <h4 class="modal-title">Edit Tamu</h4>
+                                                            <h4 class="modal-title">Edit Lokasi</h4>
                                                             <button type="button" class="close"
                                                                 data-dismiss="modal">&times;</button>
                                                         </div>
@@ -227,19 +152,15 @@ require 'cek.php';
                                                         <!-- Modal body -->
                                                         <form method="post">
                                                             <div class="modal-body">
-                                                                <input type="text" name="nama" value="<?=$nama;?>"
+                                                                <input type="text" name="idlokasi" value="<?= $idl; ?>"
                                                                     class="form-control">
                                                                 <br>
-                                                                <input type="text" name="bertemu" value="<?=$bertemu;?>"
-                                                                    class="form-control">
+                                                                <input type="text" name="namalokasi"
+                                                                    value="<?= $namalokasi; ?>" class="form-control">
                                                                 <br>
-                                                                <input type="text" name="status" value="<?=$status;?>"
-                                                                    class="form-control">
-                                                                <br>
-                                                                <br>
-                                                                <input type="hidden" name="idtamu" value="<?=$idt;?>">
+                                                                <input type="hidden" name="idl" value="<?= $idl; ?>">
                                                                 <button type="submit" class="btn btn-primary"
-                                                                    name="updatetamu">Submit</button>
+                                                                    name="updatelokasi">Submit</button>
                                                         </form>
                                                     </div>
                                                 </div>
@@ -248,60 +169,61 @@ require 'cek.php';
 
 
                                 <!-- The Modal -->
-                                <div class="modal fade" id="delete<?=$idt;?>">
+                                <div class="modal fade" id="deletelokasi<?= $idl; ?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content bg-gradient-danger">
 
                                             <!-- Modal Header -->
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Hapus Tamu</h4>
+                                                <h4 class="modal-title">Hapus Lokasi</h4>
                                             </div>
 
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    Apakah anda yakin ingin menghapus <?=$nama;?>?
+                                                    Apakah anda yakin ingin menghapus <?= $namalokasi; ?>?
                                                     <br>
                                                     <br>
-                                                    <input type="hidden" name="idtamu" value="<?=$idt;?>">
+                                                    <input type="hidden" name="idl" value="<?= $idl; ?>">
                                                     <button type="submit" class="btn btn-primary"
-                                                        name="deletetamu">Submit</button>
+                                                        name="deletelokasi">Submit</button>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
 
-                                <?php 
-                                        }
-                                        ?>
-
+                                <?php
+                                            }
+                            ?>
                                 </tbody>
                                 </table>
                             </div>
                         </div>
-                        <!-- /.col -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.container-fluid -->
-            </section>
-
-            <!-- /.content -->
+                <!-- /.row -->
         </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2021-2022 <a href="https://adminlte.io">Lt.4 Menara Bosowa</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0
-            </div>
-        </footer>
+        <!-- /.container-fluid -->
+        </section>
 
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2021-2022 <a href="https://adminlte.io">Lt.4 Menara Bosowa</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 3.1.0
+        </div>
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
@@ -333,7 +255,7 @@ require 'cek.php';
             "responsive": true,
             "lengthChange": false,
             "autoWidth": false,
-            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
         }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         $('#example2').DataTable({
             "paging": true,
@@ -349,11 +271,11 @@ require 'cek.php';
 </body>
 
 <!-- modal Insert Tamu -->
-<div class="modal fade" id="addtamu">
+<div class="modal fade" id="lokasi">
     <div class="modal-dialog">
         <div class="modal-content bg-primary">
             <div class="modal-header">
-                <h4 class="modal-title">Insert Data Tamu</h4>
+                <h4 class="modal-title">Insert Data Lokasi</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -361,13 +283,13 @@ require 'cek.php';
             <div class="modal-body">
                 <form method="post">
                     <div class="modal-body">
-                        <input type="text" name="nama" placeholder="Nama" class="form-control" required>
+                        <input type="text" name="idlokasi" placeholder="ID Lokasi" class="form-control" required>
                         <br>
-                        <input type="text" name="bertemu" placeholder="Bertemu siapa" class="form-control" required>
+                        <input type="text" name="namalokasi" placeholder="Lokasi" class="form-control" required>
                         <br>
-                        <input type="text" name="status" placeholder="Status" class="form-control" required>
+
                         <br>
-                        <button type="submit" class="btn btn-primary" name="addtamu">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="addlokasi">Submit</button>
                 </form>
             </div>
 

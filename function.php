@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = mysqli_connect('localhost', 'root', 'tmDevFlats0987^(', 'logactiviti');
+$conn = mysqli_connect('localhost', 'root', '', 'logactiviti');
 
 //Menambah log baru
 if (isset($_POST['addlogbaru'])) {
